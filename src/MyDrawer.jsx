@@ -25,6 +25,11 @@ const routes = [
     name: 'About',
     icon: <MailIcon/>,
   },
+  {
+    path: '/expenseTracker',
+    name: 'Expense Tracker',
+    icon: <MailIcon/>,
+  },
 ];
 
 import { useNavigate } from "react-router";
