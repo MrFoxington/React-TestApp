@@ -21,13 +21,18 @@ const routes = [
     icon: <InboxIcon/>,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/expenseTracker',
+    name: 'Expense Tracker',
+    icon: <MailIcon/>,
+  },  
+  {
+    path: '/taskTracker',
+    name: 'Task Tracker',
     icon: <MailIcon/>,
   },
   {
-    path: '/expenseTracker',
-    name: 'Expense Tracker',
+    path: '/about',
+    name: 'About',
     icon: <MailIcon/>,
   },
 ];
