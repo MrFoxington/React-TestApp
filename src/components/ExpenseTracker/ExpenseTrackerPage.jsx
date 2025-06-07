@@ -25,10 +25,20 @@ export default function ExpenseTrackerPage() {
     // Add the new expense to the expenseData array
     const newExpense = {
       id: expenseData.length + 1,
-      amount: amount,
+      amount: parseInt(amount),
       description: description,
     };
     setExpenseData([...expenseData, newExpense]);
+  }
+
+    function handleAddIncome(amount, description) {
+    // Add the new expense to the expenseData array
+    const newExpense = {
+      id: incomeData.length + 1,
+      amount: parseInt(amount),
+      description: description,
+    };
+    setIncomeData([...incomeData, newExpense]);
   }
 
   return (
@@ -38,6 +48,7 @@ export default function ExpenseTrackerPage() {
       <h2>Income List</h2>
       <p>Add income transactions to see how much you have earned.</p>
       <TransactionList transactions={incomeData}></TransactionList>
+      <AddTransactionForm onAdd={handleAddIncome} />
       <h2>Expenses List</h2>
       <p>Add expenses transactions to see how much you have spent.</p>
       <TransactionList transactions={expenseData}></TransactionList>
