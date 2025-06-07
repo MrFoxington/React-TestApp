@@ -1,5 +1,10 @@
 import React from "react";
 import { TextField, MenuItem, Stack } from "@mui/material";
+
+import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 const priorities = [
   {
     value: "High",
@@ -48,7 +53,7 @@ const statuses = [
 export default function TaskForm({ addTask }) {
   return (
     <>
-      <Stack>
+      <Stack spacing={2}>
         <TaskTitle />
         <TaskDescription />
         <TaskPriority />
@@ -135,8 +140,8 @@ function TaskStatus() {
 
 function TaskDueDate() {
   return (
-    <>
-      <h3> DUE DATE</h3>
-    </>
+    <LocalizationProvider dateAdapter={AdapterLuxon}>
+      <DatePicker id="dueDate" name="dueDate" label="Due Date" />
+    </LocalizationProvider>
   );
 }
