@@ -4,6 +4,7 @@ import { TextField, MenuItem, Stack } from "@mui/material";
 import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DateTime } from "luxon";
 
 const priorities = [
   {
@@ -140,8 +141,8 @@ function TaskStatus() {
 
 function TaskDueDate() {
   return (
-    <LocalizationProvider dateAdapter={AdapterLuxon}>
-      <DatePicker id="dueDate" name="dueDate" label="Due Date" />
+    <LocalizationProvider dateAdapter={AdapterLuxon} adapterLocale="en-gb">
+      <DatePicker id="dueDate" name="dueDate" label="Due Date" defaultValue={DateTime.now()}/>
     </LocalizationProvider>
   );
 }
