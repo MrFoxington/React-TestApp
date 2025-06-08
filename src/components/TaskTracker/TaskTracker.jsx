@@ -1,7 +1,17 @@
 import React from "react";
 import TaskDialogue from "./TaskDialogue";
+import ErrorBoundary from "../ErrorBoundry";
+import {Stack, Typography} from "@mui/material";
+
 
 export default function TaskTracker({ props }) {
+  const [tasks, setTasks] = React.useState([]);
+
+  function handleSubmit(formData) {
+    console.log(formData);
+    setTasks([...tasks, formData]);
+  }
+
   return (
     <>
       <h2>Task Tracker</h2>
@@ -10,6 +20,9 @@ export default function TaskTracker({ props }) {
       <br />
       <h2>Priority Tasks</h2>
       <h3>List Tasks here</h3>
+      <ErrorBoundary>
+        <TasksList tasks={tasks} />
+      </ErrorBoundary>
       <br />
 
       <h2>Non Priority Tasks</h2>
@@ -19,18 +32,38 @@ export default function TaskTracker({ props }) {
       <h2>Add Tasks</h2>
       <h3> Add new Tasks Button</h3>
       <h3> Dialogue/popup form for data entry</h3>
-      <TaskDialogue/>
+      <TaskDialogue onSubmit={handleSubmit} />
     </>
   );
 }
 
-//Task Form
-// Title
-// Description
-// Due Date
-// Priority (High, Medium, Low)
-// Status (Pending, In Progress, Completed)
-// Add Task Button
+function TasksList({ tasks }) {
+  const TaskItem = ({ task }) => {
+    return (
+      <>
+        <div className="task-item">
+          <Stack direction="row" spacing={10} alignItems="center">
+            <Typography>Title: {task.title}</Typography>
+            <Typography>Desctiption: {task.description}</Typography>
+            <Typography>Status: {task.status}</Typography>
+            <Typography>Priority: {task.priority}</Typography>
+            <Typography>Due Date: {task.dueDate}</Typography>
+          </Stack>
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <>
+      <Stack>
+        {tasks.map((task, index) => (
+          <TaskItem key={index} task={task} />
+        ))}
+      </Stack>
+    </>
+  );
+}
 
 //Task Controll forms
 // Edit Task Button

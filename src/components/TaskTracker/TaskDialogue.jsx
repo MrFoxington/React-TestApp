@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 import TaskForm from "./TaskForm";
 
-export default function FormDialog() {
+export default function FormDialog({onSubmit}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -23,8 +23,8 @@ export default function FormDialog() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-
+    // console.log(formJson);
+    onSubmit(formJson);
     handleClose();
   }
 
