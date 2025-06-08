@@ -29,6 +29,11 @@ const routes = [
     path: '/taskTracker',
     name: 'Task Tracker',
     icon: <MailIcon/>,
+  },  
+  {
+    path: '/localStoreTesting',
+    name: 'Local Storage Testing',
+    icon: <MailIcon/>,
   },
   {
     path: '/about',
