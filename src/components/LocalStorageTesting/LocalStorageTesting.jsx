@@ -33,6 +33,10 @@ export default function LocalStorageTesting() {
       <Button onClick={() => setBackgroundColour("red")}>Red</Button>
       <Button onClick={() => setBackgroundColour("blue")}>Blue</Button>
       <Button onClick={() => setBackgroundColour("green")}>Green</Button>
+      <Button onClick={() => setBackgroundColour("orange")}>Orange</Button>
+      <Button onClick={() => setBackgroundColour("pink")}>Pink</Button>
+      <Button onClick={() => setBackgroundColour("purple")}>Purple</Button>
+      <Button onClick={() => setBackgroundColour("")}>None</Button>
 
       <h3>Save Selection Button</h3>
       <Button onClick={saveSettings}>Save Settings</Button>
